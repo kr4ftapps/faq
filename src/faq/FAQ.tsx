@@ -27,7 +27,7 @@ function FAQ() {
     const filtered =
       topics.filter(
         topic =>
-          (topic.questions = topic.questions.filter(
+          (topic.questionsFiltered = topic.questions.filter(
             question =>
               JSON.stringify(question)
                 .toLowerCase()
@@ -132,7 +132,7 @@ function FAQ() {
                   id={topic.id}
                   key={topic.id}
                   title={topic.title}
-                  questions={topic.questions}
+                  questions={topic.questionsFiltered || topic.questions}
                 />
               ))}
             {filteredTopics.length === 0 && (

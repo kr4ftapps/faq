@@ -7,9 +7,13 @@ export interface ITopic {
   id: string;
   title: string;
   questions: IQuestion[];
+  questionsFiltered?: IQuestion[];
 }
 
 export const Topic = (props: ITopic) => {
+  if (!props.questions || props.questions.length <= 0) {
+    return <></>;
+  }
   return (
     <Card className="topic" id={props.id}>
       <Card.Body>
