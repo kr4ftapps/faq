@@ -1,5 +1,15 @@
 import React, { useState } from "react";
-import { Button, Card, Col, Container, Form, FormControl, InputGroup, Nav, Row } from "react-bootstrap";
+import {
+  Button,
+  Card,
+  Col,
+  Container,
+  Form,
+  FormControl,
+  InputGroup,
+  Nav,
+  Row
+} from "react-bootstrap";
 import "./FAQ.scss";
 import { ITopic, Topic } from "./Topic";
 import { TopicsList } from "./topics";
@@ -17,9 +27,12 @@ function FAQ() {
     const filtered =
       topics.filter(
         topic =>
-          JSON.stringify(topic)
-            .toLowerCase()
-            .indexOf(term) >= 0
+          (topic.questions = topic.questions.filter(
+            question =>
+              JSON.stringify(question)
+                .toLowerCase()
+                .indexOf(term) >= 0
+          ))
       ) || [];
 
     setFilteredTopics(filtered);
@@ -54,7 +67,6 @@ function FAQ() {
       </div>
 
       <Container>
-
         {/*
         <Row>
           <Col>
@@ -110,18 +122,23 @@ function FAQ() {
               </Nav>
             </Card>
           </Col>
-          <Col md={8} className="topics d-flex flex-column justify-content-center">
+          <Col
+            md={8}
+            className="topics d-flex flex-column justify-content-center"
+          >
             {filteredTopics.length > 0 &&
               filteredTopics.map(topic => (
                 <Topic
                   id={topic.id}
                   key={topic.id}
                   title={topic.title}
-                  questions={topic.questions} />
+                  questions={topic.questions}
+                />
               ))}
             {filteredTopics.length === 0 && (
               <span className="text-center">
-                Oh snap! We didn't find an answer to that. What about searching for something else?
+                Oh snap! We didn't find an answer to that. What about searching
+                for something else?
               </span>
             )}
           </Col>
