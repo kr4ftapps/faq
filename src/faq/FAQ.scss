@@ -83,3 +83,9 @@ $heroHeight: 300px;
   color: $primaryColor !important;
   background: none;
 }
+
+@media (max-width: 768px) {
+  .topics-nav  {
+    position: relative;
+  }
+}

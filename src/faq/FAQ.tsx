@@ -8,11 +8,14 @@ import {
   FormControl,
   InputGroup,
   Nav,
-  Row
+  Row,
+  CardDeck,
+  ListGroup
 } from "react-bootstrap";
 import "./FAQ.scss";
 import { ITopic, Topic } from "./Topic";
 import { TopicsList } from "./topics";
+import { PopularQuestions } from "./PopularQuestions";
 
 function FAQ() {
   const topics: ITopic[] = TopicsList;
@@ -67,50 +70,20 @@ function FAQ() {
       </div>
 
       <Container>
-        {/*
-        <Row>
+        {/* <Row>
           <Col>
-            <h1 className="topic-title">Popular questions</h1>
+            <h5 className="my-3 h5">Popular questions</h5>
           </Col>
         </Row>
 
         <Row>
           <Col>
-            <CardDeck className="popular mb-4">
-              <Card className="card-image-left">
-                <Card.Img src="payment.svg" />
-                <Card.Title>Payments</Card.Title>
-                <Card.Body>
-                  <ListGroup variant="flush">
-                    <ListGroup.Item href="#already_paid_persistent" as="a">
-                      How to Unblock
-                    </ListGroup.Item>
-                    <ListGroup.Item href="#test1" as="a">
-                      Link 2
-                    </ListGroup.Item>
-                  </ListGroup>
-                </Card.Body>
-              </Card>
-              <Card className="card-image-left">
-                <Card.Img src="gears.svg" />
-                <Card.Title>Configuration</Card.Title>
-                <Card.Body>
-                  <ListGroup variant="flush">
-                    <ListGroup.Item href="#test1" as="a">
-                      Link 1
-                    </ListGroup.Item>
-                    <ListGroup.Item href="#test1" as="a">
-                      Link 2
-                    </ListGroup.Item>
-                  </ListGroup>
-                </Card.Body>
-              </Card>
-            </CardDeck>
+            <PopularQuestions />
           </Col>
-        </Row>
-        */}
+        </Row> */}
 
         <Row className="mt-4">
+          
           <Col md={4} className="topics-nav mb-4">
             <Card>
               <Nav className="flex-md-column flex-xs-row">
