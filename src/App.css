@@ -3,6 +3,10 @@
   color: #435a6f;
 }
 
+html, body {
+  background: #f7f8fa;
+}
+
 blockquote {
   display:block;
   background: #eee;

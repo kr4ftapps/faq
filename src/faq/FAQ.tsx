@@ -1,21 +1,8 @@
 import React, { useState } from "react";
-import {
-  Button,
-  Card,
-  Col,
-  Container,
-  Form,
-  FormControl,
-  InputGroup,
-  Nav,
-  Row,
-  CardDeck,
-  ListGroup
-} from "react-bootstrap";
+import { Button, Card, Col, Container, Form, FormControl, InputGroup, Nav, Row } from "react-bootstrap";
 import "./FAQ.scss";
 import { ITopic, Topic } from "./Topic";
 import { TopicsList } from "./topics";
-import { PopularQuestions } from "./PopularQuestions";
 
 function FAQ() {
   const topics: ITopic[] = TopicsList;
@@ -28,15 +15,12 @@ function FAQ() {
     setSearchTerm(term);
 
     const filtered =
-      topics.filter(
-        topic =>
-          (topic.questionsFiltered = topic.questions.filter(
-            question =>
-              JSON.stringify(question)
-                .toLowerCase()
-                .indexOf(term) >= 0
-          ))
-      ) || [];
+      topics.filter(topic => {
+        topic.questionsFiltered = topic.questions.filter(question =>
+          (JSON.stringify(question).toLowerCase().indexOf(term) >= 0)
+        );
+        return !!topic.questionsFiltered.length;
+      }) || [];
 
     setFilteredTopics(filtered);
   };
@@ -83,7 +67,7 @@ function FAQ() {
         </Row> */}
 
         <Row className="mt-4">
-          
+
           <Col md={4} className="topics-nav mb-4">
             <Card>
               <Nav className="flex-md-column flex-xs-row">

@@ -44,7 +44,7 @@ export const Question = (props: IQuestion) => {
 
             <div className={voted ? "d-none" : ""}>
               <button
-                className="btn btn-light btn-sm ml-2"
+                className="btn btn-light btn-sm mr-2"
                 data-track-section="question"
                 data-track-action="click"
                 data-track-label="unhelpful"
