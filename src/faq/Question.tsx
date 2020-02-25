@@ -25,7 +25,8 @@ export const Question = (props: IQuestion) => {
         data-track-section="question"
         data-track-action="click"
         data-track-label="view"
-        data-track-value={props.id} >
+        data-track-value={props.id}
+      >
         {props.title}
       </div>
       <Collapse in={opened}>
@@ -33,31 +34,37 @@ export const Question = (props: IQuestion) => {
           {props.content}
 
           <div className="question-footer mt-2 py-1 text-right">
+            <div className={"text-muted " + (voted ? "" : "d-none")}>
+              Thanks for voting!
+            </div>
 
-            <div className={"text-muted " + (voted ? "" : "d-none")}>Thanks for voting!</div>
-
-            <div className={"text-muted " + (voted ? "d-none" : "")}>Did you find this helpful?</div>
+            <div className={"text-muted " + (voted ? "d-none" : "")}>
+              Did you find this helpful?
+            </div>
 
             <div className={voted ? "d-none" : ""}>
-              <button
-                data-track-section="question"
-                data-track-action="click"
-                data-track-label="helpful"
-                data-track-value={props.id}
-                className="btn btn-light btn-sm"
-                onClick={e => setVoted(true)}>
-                <IoMdThumbsUp className="icon" />
-                Yes
-              </button>
               <button
                 className="btn btn-light btn-sm ml-2"
                 data-track-section="question"
                 data-track-action="click"
                 data-track-label="unhelpful"
                 data-track-value={props.id}
-                onClick={e => setVoted(true)}>
+                onClick={e => setVoted(true)}
+              >
                 <IoMdThumbsDown className="icon" />
                 No
+              </button>
+              
+              <button
+                data-track-section="question"
+                data-track-action="click"
+                data-track-label="helpful"
+                data-track-value={props.id}
+                className="btn btn-light btn-sm"
+                onClick={e => setVoted(true)}
+              >
+                <IoMdThumbsUp className="icon" />
+                Yes
               </button>
             </div>
           </div>
