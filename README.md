@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![CI](https://github.com/kr4ftapps/faq/workflows/CI/badge.svg)
 
 ## Available Scripts
 
