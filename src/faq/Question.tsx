@@ -24,7 +24,7 @@ export const Question = (props: IQuestion) => {
         onClick={() => setOpened(!opened)}
         data-track-section="question"
         data-track-action="click"
-        data-track-label={`view-${props.id}`}
+        data-track-label={`${props.id}`}
         data-track-value={opened ? "close" : "open"}
       >
         {props.title}
