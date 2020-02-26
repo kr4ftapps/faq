@@ -25,7 +25,7 @@ export const Question = (props: IQuestion) => {
         data-track-section="question"
         data-track-action="click"
         data-track-label={`view-${props.id}`}
-        data-track-value={opened ? "open" : "close"}
+        data-track-value={opened ? "close" : "open"}
       >
         {props.title}
       </div>
