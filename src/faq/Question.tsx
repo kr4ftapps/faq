@@ -24,7 +24,7 @@ export const Question = (props: IQuestion) => {
         onClick={() => setOpened(!opened)}
         data-track-section="question"
         data-track-action="click"
-        data-track-label={`${props.id}`}
+        data-track-label={props.id}
         data-track-value={opened ? "close" : "open"}
       >
         {props.title}
@@ -47,8 +47,8 @@ export const Question = (props: IQuestion) => {
                 className="btn btn-light btn-sm mr-2"
                 data-track-section="question"
                 data-track-action="click"
-                data-track-label="unhelpful"
-                data-track-value={props.id}
+                data-track-label={props.id}
+                data-track-value="unhelpful"
                 onClick={e => setVoted(true)}
               >
                 <IoMdThumbsDown className="icon" />
@@ -58,8 +58,8 @@ export const Question = (props: IQuestion) => {
               <button
                 data-track-section="question"
                 data-track-action="click"
-                data-track-label="helpful"
-                data-track-value={props.id}
+                data-track-label={props.id}
+                data-track-value="helpful"
                 className="btn btn-light btn-sm"
                 onClick={e => setVoted(true)}
               >
