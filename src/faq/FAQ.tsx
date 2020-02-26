@@ -1,5 +1,15 @@
 import React, { useState } from "react";
-import { Button, Card, Col, Container, Form, FormControl, InputGroup, Nav, Row } from "react-bootstrap";
+import {
+  Button,
+  Card,
+  Col,
+  Container,
+  Form,
+  FormControl,
+  InputGroup,
+  Nav,
+  Row
+} from "react-bootstrap";
 import "./FAQ.scss";
 import { ITopic, Topic } from "./Topic";
 import { TopicsList } from "./topics";
@@ -16,8 +26,11 @@ function FAQ() {
 
     const filtered =
       topics.filter(topic => {
-        topic.questionsFiltered = topic.questions.filter(question =>
-          (JSON.stringify(question).toLowerCase().indexOf(term) >= 0)
+        topic.questionsFiltered = topic.questions.filter(
+          question =>
+            JSON.stringify(question)
+              .toLowerCase()
+              .indexOf(term) >= 0
         );
         return !!topic.questionsFiltered.length;
       }) || [];
@@ -40,6 +53,10 @@ function FAQ() {
                     placeholder="Let us help you to find your answer"
                     aria-label="Search"
                     aria-describedby="basic-search"
+                    data-track-section="question"
+                    data-track-action="blur"
+                    data-track-label="search"
+                    data-track-value={searchTerm}
                     onChange={inputSearchChanged}
                     value={searchTerm}
                   />
@@ -67,7 +84,6 @@ function FAQ() {
         </Row> */}
 
         <Row className="mt-4">
-
           <Col md={4} className="topics-nav mb-4">
             <Card>
               <Nav className="flex-md-column flex-xs-row">

@@ -24,8 +24,8 @@ export const Question = (props: IQuestion) => {
         onClick={() => setOpened(!opened)}
         data-track-section="question"
         data-track-action="click"
-        data-track-label="view"
-        data-track-value={props.id}
+        data-track-label={`view-${props.id}`}
+        data-track-value={opened ? "open" : "close"}
       >
         {props.title}
       </div>
@@ -54,7 +54,7 @@ export const Question = (props: IQuestion) => {
                 <IoMdThumbsDown className="icon" />
                 No
               </button>
-              
+
               <button
                 data-track-section="question"
                 data-track-action="click"
